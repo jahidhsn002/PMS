@@ -49,12 +49,18 @@ class md_category extends CI_Model {
 	public function get_id(){
 		$this->db->where('name', 'id');
         $querys = $this->db->get('setting');
-        foreach($querys->result() as $query){
-			$id = ( $query->value + 1 );
+		if(empty($querys->result())){
+			$id = 1;
+			$data = array( 'name' => 'id', 'value' => $id );
+			$this->db->insert('setting', $data);
+		}else{
+			foreach($querys->result() as $query){
+				$id = ( $query->value + 1 );
+			}
+			$data = array( 'name' => 'id', 'value' => $id );
+			$this->db->where('name', 'id');
+			$this->db->update('setting', $data);
 		}
-		$data = array( 'name' => 'id', 'value' => $id );
-		$this->db->where('name', 'id');
-		$this->db->update('setting', $data);
 		return $id;
     }
 	

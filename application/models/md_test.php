@@ -6,7 +6,7 @@ class md_test extends CI_Model {
 	public $uid;
     public $pid;
     public $name;
-    public $argu;
+    public $cat;
 	public $note;
 	public $entry;
 
@@ -23,7 +23,7 @@ class md_test extends CI_Model {
 		$this->uid   	= $this->get_id();
         $this->pid   	= $data['pid'];
 		$this->name    	= $data['name'];
-		$this->argu  	= $data['argu'];
+		$this->cat  	= $data['cat'];
 		$this->note    	= $data['note'];
         $this->entry    = time();
 
@@ -35,7 +35,7 @@ class md_test extends CI_Model {
         $this->uid   	= $data['uid'];
         $this->pid   	= $data['pid'];
 		$this->name    	= $data['name'];
-		$this->argu  	= $data['argu'];
+		$this->cat  	= $data['cat'];
 		$this->note    	= $data['note'];
         $this->entry    = time();
 		$this->db->where('uid', $this->uid);

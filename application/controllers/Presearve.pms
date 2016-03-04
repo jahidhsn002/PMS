@@ -1,0 +1,4 @@
+
+// Adding Module
+$this->load->model('md_module');
+$this->md_module->ADD(array('id'=>'1','name'=>'Test','value'=>'Test'));

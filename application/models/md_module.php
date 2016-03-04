@@ -12,7 +12,7 @@ class md_module extends CI_Model {
     }
 	
 	public function INFO(){
-        $query = $this->db->get('meta');
+        $query = $this->db->get('module');
         return $query->result();
     }
 	
@@ -20,7 +20,7 @@ class md_module extends CI_Model {
 		$this->id   	= $data['id'];
 		$this->name    	= $data['name'];
 		$this->value  	= $data['value'];
-        $this->db->insert('meta', $this);
+        $this->db->insert('module', $this);
     }
 	
 	public function EDIT($data){
@@ -28,13 +28,13 @@ class md_module extends CI_Model {
 		$this->name    	= $data['name'];
 		$this->value  	= $data['value'];
 		$this->db->where('id', $this->id);
-		$this->db->update('meta', $this);
+		$this->db->update('module', $this);
     }
 	
 	public function TRASH($data){
         $this->id   	= $data['id'];
 		$this->db->where('uid', $this->uid);
-		$this->db->delete('meta');
+		$this->db->delete('module');
     }
 	
 }
